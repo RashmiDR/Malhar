@@ -29,18 +29,31 @@ public class RandomWordInputModule implements InputOperator
   public final transient DefaultOutputPort<byte[]> output = new DefaultOutputPort<byte[]>();
   private transient int count;
   private boolean firstTime;
+  
+  private int tupleSize = 64;
+  
+  public void setTupleSize(int size) {
+	  tupleSize = size;
+  }
+  
+  public int getTupleSize()
+  {
+    return tupleSize;
+  }
+
+
 
   @Override
   public void emitTuples()
   {
     if (firstTime) {
       for (int i = count--; i-- > 0;) {
-        output.emit(new byte[64]);
+        output.emit(new byte[tupleSize]);
       }
       firstTime = false;
     }
     else {
-      output.emit(new byte[64]);
+      output.emit(new byte[tupleSize]);
       count++;
     }
   }
