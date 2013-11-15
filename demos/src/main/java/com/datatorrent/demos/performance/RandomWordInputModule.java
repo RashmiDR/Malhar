@@ -18,6 +18,7 @@ package com.datatorrent.demos.performance;
 import com.datatorrent.api.DefaultOutputPort;
 import com.datatorrent.api.InputOperator;
 import com.datatorrent.api.Context.OperatorContext;
+import javax.validation.constraints.Min;
 
 /**
  * <p>RandomWordInputModule class.</p>
@@ -30,10 +31,13 @@ public class RandomWordInputModule implements InputOperator
   private transient int count;
   private boolean firstTime;
   
+  @Min(1)
   private int tupleSize = 64;
  
   /**
-   * @param size the tupleSize to set
+   * Sets the size of the tuple to the specified size
+   * 
+   * @param size - the tupleSize to set
    */
   public void setTupleSize(int size) 
   {
