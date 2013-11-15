@@ -31,17 +31,22 @@ public class RandomWordInputModule implements InputOperator
   private boolean firstTime;
   
   private int tupleSize = 64;
-  
-  public void setTupleSize(int size) {
+ 
+  /**
+   * @param size the tupleSize to set
+   */
+  public void setTupleSize(int size) 
+  {
 	  tupleSize = size;
   }
   
+  /**
+   * @return the tupleSize
+   */
   public int getTupleSize()
   {
     return tupleSize;
   }
-
-
 
   @Override
   public void emitTuples()
