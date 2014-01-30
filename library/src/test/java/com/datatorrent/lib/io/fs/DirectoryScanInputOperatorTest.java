@@ -49,13 +49,13 @@ public class DirectoryScanInputOperatorTest
 		oper.emitTuples();
     
     Assert.assertTrue("tuple emmitted: " + sink.collectedTuples.size(), sink.collectedTuples.size() > 0);
-		Assert.assertEquals(sink.collectedTuples.size(), 15);
+		Assert.assertEquals(sink.collectedTuples.size(), 10);
 		
 		
 		//Test if the new file added is detected
 		sink.collectedTuples.clear();
 		
-		File oldFile = new File("../library/src/test/resources/directoryScanTestDirectory/DateWritable.java");
+		File oldFile = new File("../library/src/test/resources/directoryScanTestDirectory/testFile1.txt");
 		File newFile = new File("../library/src/test/resources/directoryScanTestDirectory/newFile.java");
 		FileUtils.copyFile(oldFile, newFile);
 
